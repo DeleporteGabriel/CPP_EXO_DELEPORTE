@@ -22,3 +22,7 @@ string Lieu::getTableau(int valeurTableau) {
 string Lieu::getDescription() {
     return _description;
 }
+
+int Lieu::getDifficulty() {
+    return _difficulty;
+}

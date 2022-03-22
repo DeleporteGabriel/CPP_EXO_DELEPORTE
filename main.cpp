@@ -37,7 +37,9 @@ int main(){
         cout << "Bon bah du coup vous restez sur place, je suppose." << endl;
     }
 
-    //Exercice 3
+    //Exercice 3 (et 5 un peu aussi)
+    int endurance = 100;
+
     Lieu * laForet = new Lieu("forêt", "Il y a des arbres ici", 4);
     laForet -> setBranches("chemin", "maison");
 
@@ -50,7 +52,7 @@ int main(){
     Lieu * lieuActuel = laForet;
     string suite;
 
-    while (true){
+    while (endurance > 0){
         cout << "Où veux-tu aller? " << lieuActuel -> getTableau(0) << " ou " << lieuActuel -> getTableau(1) << endl;
         cin >> suite;
 
@@ -63,7 +65,8 @@ int main(){
         else if (suite == "maison") {
             lieuActuel = laMaison;
         }
+        endurance = endurance - lieuActuel -> getDifficulty();  
         cout << lieuActuel -> getDescription() << endl;
+        cout << "votre endurance restante est de "<< endurance << endl;
     }
-
 }

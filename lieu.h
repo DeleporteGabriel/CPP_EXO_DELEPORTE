@@ -21,6 +21,7 @@ class Lieu {
         void setBranches(string _tableau1, string _tableau2);
         string getTableau(int valeurTableau);
         string getDescription();
+        int getDifficulty();
         
 };
 
