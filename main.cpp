@@ -37,7 +37,7 @@ int main(){
         cout << "Bon bah du coup vous restez sur place, je suppose." << endl;
     }
 
-    //Exercice 3 (et 5 un peu aussi)
+    //Exercice 3 (et 5 un peu aussi et le 6 du coup en fait tout sauf le 8 car manque de temps lol)
     int endurance = 100;
 
     Lieu * laForet = new Lieu("forêt", "Il y a des arbres ici", 4);
@@ -51,6 +51,8 @@ int main(){
 
     Lieu * lieuActuel = laForet;
     string suite;
+    int campoupacamp;
+    int reposoupas;
 
     while (endurance > 0){
         cout << "Où veux-tu aller? " << lieuActuel -> getTableau(0) << " ou " << lieuActuel -> getTableau(1) << endl;
@@ -65,8 +67,38 @@ int main(){
         else if (suite == "maison") {
             lieuActuel = laMaison;
         }
+
+
+
+        if (lieuActuel -> getCampement() == false){
+        cout << "Voulez vous installer un campement ici? 1. oui 2. non" << endl;
+        cin >> campoupacamp;
+        if (campoupacamp == 1)
+        {
+            lieuActuel -> mettreCampement();
+        }
+        else {
+            cout << "vous décidez de ne rien faire" << endl;
+        }
+
+        }
+
         endurance = endurance - lieuActuel -> getDifficulty();  
         cout << lieuActuel -> getDescription() << endl;
+        if (lieuActuel -> getCampement() == true) {
+            cout << "Il y a un campement ici. Voulez vous vous y reposer? 1. oui 2. non" << endl;
+            cin >> reposoupas;
+
+            if (reposoupas == 1){
+                cout << "vous vous reposez" <<endl;
+                endurance = lieuActuel -> repos(endurance);
+            }
+            else {
+                cout << "vous ne faites rien comme un vrai bonhomme" <<endl;
+            }
+
+        }
+        if (endurance < 0) {endurance = 0;}
         cout << "votre endurance restante est de "<< endurance << endl;
     }
 }

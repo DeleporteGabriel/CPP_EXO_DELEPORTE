@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <math.h> 
 
 using namespace std;
 
@@ -25,4 +26,21 @@ string Lieu::getDescription() {
 
 int Lieu::getDifficulty() {
     return _difficulty;
+}
+
+void Lieu::mettreCampement() {
+    _campement = true;
+    _difficulty = floor(_difficulty/2);
+}
+
+bool Lieu::getCampement() {
+    return _campement;
+}
+
+int Lieu::repos(int endurance){
+    endurance += 50;
+    if (endurance > 100) {
+        endurance = 100;
+    }
+    return endurance;
 }

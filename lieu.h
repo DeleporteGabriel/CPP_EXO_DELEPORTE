@@ -14,6 +14,7 @@ class Lieu {
         string _description;
         int _difficulty;
         string _tableau[2] {"salut c'est moi"};
+        bool _campement = false;
 
     public:
         Lieu();
@@ -22,6 +23,11 @@ class Lieu {
         string getTableau(int valeurTableau);
         string getDescription();
         int getDifficulty();
+
+        void mettreCampement();
+        bool getCampement();
+
+        int repos(int endurance);
         
 };
 
